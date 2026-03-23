@@ -11,3 +11,7 @@
 
 - [主题定制](./theme-customization) - 主题定制实时预览
 
+## 示例
+
+- [SSE 流式响应](./sse-demo) - 完整流式对话演示
+

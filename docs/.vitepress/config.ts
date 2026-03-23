@@ -40,6 +40,12 @@ export default defineConfig({
           items: [
             { text: '主题定制', link: '/guide/theme-customization' }
           ]
+        },
+        {
+          text: '示例',
+          items: [
+            { text: 'SSE 流式响应', link: '/guide/sse-demo' }
+          ]
         }
       ],
       '/components/': [
