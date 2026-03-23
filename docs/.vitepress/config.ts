@@ -4,6 +4,7 @@ export default defineConfig({
   title: 'Ai UI Vue',
   description: 'Vue3 AI 应用专用组件库',
   lang: 'zh-CN',
+  base: '/ai-ui-vue/',
 
   themeConfig: {
     nav: [
