@@ -1,9 +1,14 @@
----
 # Ai UI Vue
 
 Vue3 AI 应用专用组件库，专注于流式对话、智能表单、Markdown 渲染等 AI 场景。
 
-该库专为 AI 应用设计，内置 SSE/WebSocket 支持，使用 CSS 变量可轻松定制主题。提供完整的 TypeScript 类型支持，并通过单元测试保障代码质量。
+## 特性
+
+- 专为 AI 应用设计
+- 内置 SSE/WebSocket 支持
+- CSS 变量，轻松定制主题
+- 完整 TypeScript 类型支持
+- 单元测试保障质量
 
 ## 快速开始
 
@@ -33,10 +38,10 @@ import { AiInput, AiMessage, AiLoader } from 'ai-ui-vue'
 
 ### 核心
 
-- [AiInput](/components/ai-input.md) - Prompt 输入框
-- [AiMessage](/components/ai-message.md) - 消息气泡
-- [AiLoader](/components/ai-loader.md) - 加载状态
-- [AiMarkdown](/components/ai-markdown.md) - Markdown 渲染
+- [AiInput](/components/ai-input.html) - Prompt 输入框
+- [AiMessage](/components/ai-message.html) - 消息气泡
+- [AiLoader](/components/ai-loader.html) - 加载状态
+- [AiMarkdown](/components/ai-markdown.html) - Markdown 渲染
 
 ### 开发中
 
@@ -47,9 +52,9 @@ import { AiInput, AiMessage, AiLoader } from 'ai-ui-vue'
 
 ## 文档
 
-- [快速开始](/guide/getting-started.md)
-- [项目结构](/guide/structure.md)
-- [贡献指南](../CONTRIBUTING.md)
+- [快速开始](/guide/getting-started.html) - 快速开始
+- [项目结构](/guide/structure.html) - 项目结构
+- [贡献指南](../CONTRIBUTING.md) - 贡献指南
 
 ## 贡献
 

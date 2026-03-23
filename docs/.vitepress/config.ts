@@ -55,5 +55,10 @@ export default defineConfig({
 
     lastUpdated: true,
     contributors: false
+  },
+  
+  // 禁用 frontmatter 解析
+  markdown: {
+    frontmatter: false
   }
 })
