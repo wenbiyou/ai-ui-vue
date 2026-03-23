@@ -12,13 +12,13 @@
 
 ## 📦 安装
 
-\`\`\`bash
+```bash
 npm install ai-ui-vue
-\`\`\`
+```
 
 ## 🚀 快速开始
 
-\`\`\`vue
+```vue
 <script setup>
 import { AiInput, AiMessage, AiMarkdown, AiLoader } from 'ai-ui-vue'
 import { ref } from 'vue'
@@ -39,17 +39,17 @@ const handleSubmit = () => {
       role="assistant"
       content="Hello! How can I help you today?"
     />
-    
+
     <AiInput
       v-model="message"
       :loading="isLoading"
       @submit="handleSubmit"
     />
-    
+
     <AiLoader v-if="isLoading" type="typing" text="Thinking..." />
   </div>
 </template>
-\`\`\`
+```
 
 ## 🧩 组件列表
 
