@@ -21,14 +21,27 @@
 import { computed } from 'vue'
 import AiMarkdown from '../markdown/AiMarkdown.vue'
 
+/**
+ * AiMessage 组件 Props 定义
+ * @description 消息气泡组件，专为 AI 对话场景设计，支持用户/AI/系统三种角色
+ */
 export interface AiMessageProps {
+  /** 消息角色：user用户发送 | assistant AI回复 | system系统通知 */
   role?: 'user' | 'assistant' | 'system'
+  /** 消息内容，自动支持 Markdown 渲染，如果使用默认插槽则不需要 */
   content?: string
+  /** 是否显示头像 */
   showAvatar?: boolean
+  /** 是否显示时间戳 */
   showTimestamp?: boolean
+  /** 消息时间，支持 Date 对象或字符串（如 '10:30'） */
   timestamp?: Date | string
 }
 
+/**
+ * @slot avatar - 自定义头像内容
+ * @slot default - 自定义消息内容，覆盖 content prop
+ */
 const props = withDefaults(defineProps<AiMessageProps>(), {
   role: 'assistant',
   showAvatar: true,

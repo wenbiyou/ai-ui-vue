@@ -16,9 +16,16 @@ hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('typescript', typescript)
 hljs.registerLanguage('python', python)
 
+/**
+ * AiMarkdown 组件 Props 定义
+ * @description Markdown 渲染组件，内置代码高亮，支持 GitHub Flavored Markdown
+ */
 export interface AiMarkdownProps {
+  /** 需要渲染的 Markdown 文本内容 */
   content: string
+  /** 是否将换行符转换为 <br> 标签 */
   breaks?: boolean
+  /** 是否启用 GitHub Flavored Markdown 扩展 */
   gfm?: boolean
 }
 

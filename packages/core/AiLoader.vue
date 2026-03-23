@@ -18,9 +18,21 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * AiLoader 组件 Props 定义
+ * @description 加载状态组件，提供三种不同的加载动画，适合 AI 对话场景
+ */
 export interface AiLoaderProps {
+  /**
+   * 加载动画类型
+   * - typing: 打字机三点跳动，推荐用于 AI 思考/生成中
+   * - dots: 三点上下跳动，简洁轻量
+   * - spinner: 旋转加载，传统样式
+   */
   type?: 'dots' | 'spinner' | 'typing'
+  /** 加载提示文本，可选 */
   text?: string
+  /** 组件尺寸 */
   size?: 'small' | 'medium' | 'large'
 }
 

@@ -25,21 +25,40 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick } from 'vue'
 
+/**
+ * AiInput 组件 Props 定义
+ * @description Prompt 输入框，专为 AI 对话场景设计，支持自动调整高度、字符计数、键盘快捷键
+ */
 export interface AiInputProps {
+  /** 输入框的值，支持 v-model 双向绑定 */
   modelValue?: string
+  /** 占位符提示文本 */
   placeholder?: string
+  /** 是否禁用输入 */
   disabled?: boolean
+  /** 是否只读 */
   readonly?: boolean
+  /** 最大输入字符长度，不限制则不设置 */
   maxlength?: number
+  /** 是否显示底部操作栏 */
   showFooter?: boolean
+  /** 是否显示当前字符计数 */
   showCharCount?: boolean
+  /** 是否在组件挂载后自动聚焦 */
   autofocus?: boolean
+  /** 是否自动调整高度随内容变化 */
   autoResize?: boolean
 }
 
+/**
+ * AiInput 组件 Events 定义
+ */
 export interface AiInputEmits {
+  /** 输入内容更新时触发，用于 v-model 双向绑定 */
   (e: 'update:modelValue', value: string): void
+  /** 用户按下 Enter（不按住 Shift）提交时触发 */
   (e: 'submit'): void
+  /** 用户按下 Escape 取消输入时触发 */
   (e: 'cancel'): void
 }
 
@@ -54,6 +73,7 @@ const props = withDefaults(defineProps<AiInputProps>(), {
   autoResize: true
 })
 
+/** 组件事件发射 */
 const emit = defineEmits<AiInputEmits>()
 
 const textareaRef = ref<HTMLTextAreaElement>()
