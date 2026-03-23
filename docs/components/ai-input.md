@@ -60,6 +60,8 @@ const handleSubmit = () => {
 
 ### 基础用法
 
+:::demo
+
 ```vue
 <template>
   <AiInput
@@ -72,17 +74,21 @@ const handleSubmit = () => {
 
 <script setup>
 import { ref } from 'vue'
-import AiInput from 'ai-ui-vue'
+import AiInput from '../../packages/core/AiInput.vue'
 
 const message = ref('')
 
 const handleSubmit = () => {
-  console.log('提交:', message.value)
+  alert('提交: ' + message.value)
 }
 </script>
 ```
 
+:::
+
 ### 禁用状态
+
+:::demo
 
 ```vue
 <template>
@@ -92,9 +98,20 @@ const handleSubmit = () => {
     placeholder="输入框已禁用"
   />
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import AiInput from '../../packages/core/AiInput.vue'
+
+const message = ref('这是禁用的内容')
+</script>
 ```
 
+:::
+
 ### 只读状态
+
+:::demo
 
 ```vue
 <template>
@@ -103,9 +120,20 @@ const handleSubmit = () => {
     readonly
   />
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import AiInput from '../../packages/core/AiInput.vue'
+
+const message = ref('这是只读内容')
+</script>
 ```
 
+:::
+
 ### 自动聚焦
+
+:::demo
 
 ```vue
 <template>
@@ -115,22 +143,52 @@ const handleSubmit = () => {
     placeholder="输入框已自动聚焦"
   />
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import AiInput from '../../packages/core/AiInput.vue'
+
+const message = ref('')
+</script>
 ```
 
+:::
+
 ### 带自定义操作栏
+
+:::demo
 
 ```vue
 <template>
   <AiInput v-model="message">
     <template #actions>
-      <button @click="handleClear">清空</button>
-      <button @click="handleSubmit">发送</button>
+      <button style="padding: 4px 12px; border-radius: 4px; border: 1px solid var(--ai-border-color); background: white; cursor: pointer;" @click="handleClear">清空</button>
+      <button style="padding: 4px 12px; border-radius: 4px; border: 1px solid var(--ai-primary-color); background: var(--ai-primary-color); color: white; cursor: pointer; margin-left: 8px;" @click="handleSubmit">发送</button>
     </template>
   </AiInput>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import AiInput from '../../packages/core/AiInput.vue'
+
+const message = ref('')
+
+const handleClear = () => {
+  message.value = ''
+}
+
+const handleSubmit = () => {
+  alert('发送: ' + message.value)
+}
+</script>
 ```
 
+:::
+
 ### 限制字符数
+
+:::demo
 
 ```vue
 <template>
@@ -141,9 +199,20 @@ const handleSubmit = () => {
     placeholder="最多输入 100 个字符"
   />
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import AiInput from '../../packages/core/AiInput.vue'
+
+const message = ref('')
+</script>
 ```
 
+:::
+
 ### 不显示底部操作栏
+
+:::demo
 
 ```vue
 <template>
@@ -153,9 +222,20 @@ const handleSubmit = () => {
     placeholder="简洁模式"
   />
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import AiInput from '../../packages/core/AiInput.vue'
+
+const message = ref('')
+</script>
 ```
 
+:::
+
 ### 不自动调整高度
+
+:::demo
 
 ```vue
 <template>
@@ -165,20 +245,25 @@ const handleSubmit = () => {
     style="height: 100px"
   />
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import AiInput from '../../packages/core/AiInput.vue'
+
+const message = ref('')
+</script>
 ```
 
-### 键盘快捷键
-
-- `Enter`（不按 Shift）- 触发 submit 事件
-- `Shift + Enter` - 换行
-- `Escape` - 触发 cancel 事件
+:::
 
 ### 完整对话输入示例
 
+:::demo
+
 ```vue
 <template>
-  <div class="chat-container">
-    <div class="messages">
+  <div style="display: flex; flex-direction: column; gap: 16px; max-width: 600px;">
+    <div style="border: 1px solid var(--ai-border-color); border-radius: 8px; padding: 12px; min-height: 200px;">
       <AiMessage
         v-for="msg in messages"
         :key="msg.id"
@@ -196,7 +281,8 @@ const handleSubmit = () => {
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage } from 'ai-ui-vue'
+import AiInput from '../../packages/core/AiInput.vue'
+import AiMessage from '../../packages/core/AiMessage.vue'
 
 const inputValue = ref('')
 const messages = ref([
@@ -211,10 +297,17 @@ const handleSend = () => {
     content: inputValue.value
   })
   inputValue.value = ''
-  // 处理 AI 回复...
 }
 </script>
 ```
+
+:::
+
+### 键盘快捷键
+
+- `Enter`（不按 Shift）- 触发 submit 事件
+- `Shift + Enter` - 换行
+- `Escape` - 触发 cancel 事件
 
 ## 主题定制
 

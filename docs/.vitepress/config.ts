@@ -1,10 +1,18 @@
 import { defineConfig } from 'vitepress'
+import demoblock from 'vitepress-theme-demoblock'
 
 export default defineConfig({
   title: 'Ai UI Vue',
   description: 'Vue3 AI 应用专用组件库',
   lang: 'zh-CN',
   base: '/ai-ui-vue/',
+
+  markdown: {
+    frontmatter: false,
+    config: (md) => {
+      md.use(demoblock)
+    }
+  },
 
   themeConfig: {
     nav: [
@@ -56,11 +64,6 @@ export default defineConfig({
 
     lastUpdated: true,
     contributors: false
-  },
-  
-  // 禁用 frontmatter 解析
-  markdown: {
-    frontmatter: false
   },
 
   // 忽略死链接检查
