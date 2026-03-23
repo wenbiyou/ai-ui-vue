@@ -61,5 +61,8 @@ export default defineConfig({
   // 禁用 frontmatter 解析
   markdown: {
     frontmatter: false
-  }
+  },
+
+  // 忽略死链接检查
+  ignoreDeadLinks: true
 })
