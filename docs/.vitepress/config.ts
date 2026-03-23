@@ -34,6 +34,12 @@ export default defineConfig({
             { text: '快速开始', link: '/guide/getting-started' },
             { text: '项目结构', link: '/guide/structure' }
           ]
+        },
+        {
+          text: '定制',
+          items: [
+            { text: '主题定制', link: '/guide/theme-customization' }
+          ]
         }
       ],
       '/components/': [

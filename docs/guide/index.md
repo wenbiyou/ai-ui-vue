@@ -6,3 +6,8 @@
 
 - [快速开始](./getting-started) - 安装和基本使用
 - [项目结构](./structure) - 项目结构说明
+
+## 定制
+
+- [主题定制](./theme-customization) - 主题定制实时预览
+
