@@ -62,6 +62,10 @@ export interface AiInputEmits {
   (e: 'cancel'): void
 }
 
+/**
+ * AiInput 组件 Slots 定义
+ * @slot actions - 底部操作栏右侧自定义内容，比如发送按钮
+ */
 const props = withDefaults(defineProps<AiInputProps>(), {
   modelValue: '',
   placeholder: '输入内容...',

@@ -39,8 +39,9 @@ export interface AiMessageProps {
 }
 
 /**
- * @slot avatar - 自定义头像内容
- * @slot default - 自定义消息内容，覆盖 content prop
+ * AiMessage 组件 Slots 定义
+ * @slot avatar - 自定义头像内容，默认显示 emoji 占位
+ * @slot default - 自定义消息内容，优先级高于 content prop
  */
 const props = withDefaults(defineProps<AiMessageProps>(), {
   role: 'assistant',
