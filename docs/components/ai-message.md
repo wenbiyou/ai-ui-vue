@@ -68,7 +68,7 @@
 ```vue
 <AiMessage role="user">
   <template #avatar>
-    <img src="/avatar.jpg" />
+    <img src="/avatar.jpg" alt="头像" />
   </template>
 </AiMessage>
 ```
@@ -79,5 +79,52 @@
 <AiMessage
   role="assistant"
   content="# 标题\n\n这是一段**加粗**文字。"
+/>
+```
+
+### 对话列表使用
+
+```vue
+<template>
+  <div class="chat-list">
+    <AiMessage
+      role="user"
+      content="你好，请给我介绍一下Vue3的新特性"
+      :show-timestamp="true"
+      :timestamp="'10:30"
+    />
+    <AiMessage
+      role="assistant"
+      :content="aiReply"
+      :show-timestamp="true"
+      :timestamp="'10:31"
+    />
+  </div>
+</template>
+```
+
+### 流式渲染中使用 AiLoader
+
+当 AI 正在生成回复时，可以结合 AiLoader：
+
+```vue
+<template>
+  <AiMessage role="assistant">
+    <template #default>
+      <AiLoader type="typing" text="AI 正在思考..." />
+    </template>
+  </AiMessage>
+</template>
+```
+
+### 隐藏头像
+
+不需要显示头像时：
+
+```vue
+<AiMessage
+  role="system"
+  content="系统提示：对话已清空"
+  :show-avatar="false"
 />
 ```

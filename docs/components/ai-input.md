@@ -58,7 +58,66 @@ const handleSubmit = () => {
 
 ## 示例
 
-### 带操作栏
+### 基础用法
+
+```vue
+<template>
+  <AiInput
+    v-model="message"
+    placeholder="输入内容..."
+    :show-char-count="true"
+    @submit="handleSubmit"
+  />
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import AiInput from 'ai-ui-vue'
+
+const message = ref('')
+
+const handleSubmit = () => {
+  console.log('提交:', message.value)
+}
+</script>
+```
+
+### 禁用状态
+
+```vue
+<template>
+  <AiInput
+    v-model="message"
+    disabled
+    placeholder="输入框已禁用"
+  />
+</template>
+```
+
+### 只读状态
+
+```vue
+<template>
+  <AiInput
+    v-model="message"
+    readonly
+  />
+</template>
+```
+
+### 自动聚焦
+
+```vue
+<template>
+  <AiInput
+    v-model="message"
+    autofocus
+    placeholder="输入框已自动聚焦"
+  />
+</template>
+```
+
+### 带自定义操作栏
 
 ```vue
 <template>
@@ -79,6 +138,31 @@ const handleSubmit = () => {
     v-model="message"
     :maxlength="100"
     :show-char-count="true"
+    placeholder="最多输入 100 个字符"
+  />
+</template>
+```
+
+### 不显示底部操作栏
+
+```vue
+<template>
+  <AiInput
+    v-model="message"
+    :show-footer="false"
+    placeholder="简洁模式"
+  />
+</template>
+```
+
+### 不自动调整高度
+
+```vue
+<template>
+  <AiInput
+    v-model="message"
+    :auto-resize="false"
+    style="height: 100px"
   />
 </template>
 ```
@@ -88,6 +172,49 @@ const handleSubmit = () => {
 - `Enter`（不按 Shift）- 触发 submit 事件
 - `Shift + Enter` - 换行
 - `Escape` - 触发 cancel 事件
+
+### 完整对话输入示例
+
+```vue
+<template>
+  <div class="chat-container">
+    <div class="messages">
+      <AiMessage
+        v-for="msg in messages"
+        :key="msg.id"
+        :role="msg.role"
+        :content="msg.content"
+      />
+    </div>
+    <AiInput
+      v-model="inputValue"
+      placeholder="输入消息，按 Enter 发送..."
+      @submit="handleSend"
+    />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { AiInput, AiMessage } from 'ai-ui-vue'
+
+const inputValue = ref('')
+const messages = ref([
+  { id: 1, role: 'assistant', content: '你好！有什么可以帮你的吗？' }
+])
+
+const handleSend = () => {
+  if (!inputValue.value.trim()) return
+  messages.value.push({
+    id: Date.now(),
+    role: 'user',
+    content: inputValue.value
+  })
+  inputValue.value = ''
+  // 处理 AI 回复...
+}
+</script>
+```
 
 ## 主题定制
 

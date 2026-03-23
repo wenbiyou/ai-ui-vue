@@ -49,15 +49,53 @@
 ### 尺寸调整
 
 ```vue
-<div style="display: flex; gap: 10px;">
+<div style="display: flex; gap: 10px; align-items: center;">
   <AiLoader type="typing" size="small" text="Small" />
   <AiLoader type="typing" size="medium" text="Medium" />
   <AiLoader type="typing" size="large" text="Large" />
 </div>
 ```
 
-## 样式说明
+### 不同类型对比
 
-- `typing` - 打字机动画，适合 AI 思考场景
-- `dots` - 三个圆点跳动，适合数据加载
-- `spinner` - 旋转动画，适合长时间处理
+```vue
+<div style="display: flex; flex-direction: column; gap: 20px;">
+  <AiLoader type="typing" text="typing - AI 思考中..." />
+  <AiLoader type="dots" />
+  <AiLoader type="spinner" text="spinner - 加载中..." />
+</div>
+```
+
+### 在 AI 消息框中使用
+
+结合 AiMessage 在流式对话中使用：
+
+```vue
+<template>
+  <AiMessage role="assistant">
+    <template #default>
+      <AiLoader type="typing" text="AI 正在生成回复..." />
+    </template>
+  </AiMessage>
+</template>
+```
+
+### 在按钮中使用
+
+```vue
+<template>
+  <button :disabled="loading">
+    <AiLoader v-if="loading" type="spinner" size="small" />
+    <span v-else>提交</span>
+  </button>
+</template>
+```
+
+## 样式选择指南
+
+| 类型 | 适用场景 | 特点 |
+|------|----------|------|
+| `typing` | AI 思考/生成中 | 打字机光标效果，适合对话场景 |
+| `dots` | 数据加载中 | 简洁圆点跳动，占空间小 |
+| `spinner` | 长时间处理 | 旋转动画，传统加载样式 |
+

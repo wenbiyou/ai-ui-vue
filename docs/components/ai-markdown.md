@@ -112,6 +112,54 @@ const listText = ref(`
 </script>
 ```
 
+### 引用块
+
+```vue
+<AiMarkdown :content="quoteText" />
+
+<script setup>
+const quoteText = ref(`
+> 这是一段引用文本
+> - 作者：Unknown
+`)
+</script>
+```
+
+### 链接和图片
+
+```vue
+<AiMarkdown :content="linkText" />
+
+<script setup>
+const linkText = ref(`
+欢迎访问 [GitHub](https://github.com)。
+
+![示例图片](https://example.com/image.jpg)
+`)
+</script>
+```
+
+### 在 AI 流式输出中使用
+
+```vue
+<template>
+  <AiMessage role="assistant">
+    <AiMarkdown :content="streamingContent" />
+    <AiLoader v-if="isStreaming" type="typing" size="small" />
+  </AiMessage>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { AiMessage, AiMarkdown, AiLoader } from 'ai-ui-vue'
+
+const streamingContent = ref('')
+const isStreaming = ref(true)
+
+// SSE 流式输出...
+</script>
+```
+
 ## 样式定制
 
 组件使用 `.ai-markdown` 类，可以通过 CSS 覆盖默认样式：

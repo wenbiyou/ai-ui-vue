@@ -30,15 +30,18 @@ const props = withDefaults(defineProps<AiMarkdownProps>(), {
 const renderedHtml = computed(() => {
   marked.setOptions({
     breaks: props.breaks,
-    gfm: props.gfm,
-    highlight: (code, lang) => {
-      if (lang && hljs.getLanguage(lang)) {
-        return hljs.highlight(code, { language: lang }).value
-      }
-      return hljs.highlightAuto(code).value
-    }
+    gfm: props.gfm
   })
-  return marked(props.content)
+  // 使用 marked 扩展实现代码高亮
+  const renderer = new marked.Renderer()
+  renderer.code = function(code: string, lang: string) {
+    if (lang && hljs.getLanguage(lang)) {
+      return `<pre><code class="hljs language-${lang}">${hljs.highlight(code, { language: lang }).value}</code></pre>`
+    }
+    return `<pre><code class="hljs">${hljs.highlightAuto(code).value}</code></pre>`
+  }
+  marked.use({ renderer })
+  return marked.parse(props.content)
 })
 </script>
 
