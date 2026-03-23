@@ -4,6 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [vue()],
+  root: './',
   build: {
     lib: {
       entry: resolve(__dirname, 'packages/index.ts'),
@@ -23,5 +24,9 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'packages')
     }
+  },
+  server: {
+    port: 5173,
+    open: false
   }
 })
