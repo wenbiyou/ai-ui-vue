@@ -1,0 +1,81 @@
+/* 统一 Demo 样式 */
+
+/* Demo 容器样式 */
+.vitepress-demo-block {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  margin: 24px 0;
+  overflow: hidden;
+}
+
+/* Demo 预览区域 */
+.vitepress-demo-block__demo {
+  padding: 24px;
+  background: var(--vp-c-bg);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+/* 代码区域 */
+.vitepress-demo-block__code {
+  position: relative;
+  background: var(--vp-c-bg-soft);
+}
+
+/* 复制按钮样式统一 */
+.vitepress-demo-block__copy {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.vitepress-demo-block__copy:hover {
+  color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+}
+
+/* 折叠/展开按钮 */
+.vitepress-demo-block__toggle {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.vitepress-demo-block__toggle:hover {
+  color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+}
+
+/* 在浅色主题下调整对比度 */
+:root {
+  --ai-demo-bg: #fafafa;
+  --ai-demo-border: #e5e7eb;
+}
+
+/* 确保组件在 Demo 中正确显示间距 */
+.vitepress-demo-block__demo > * {
+  margin: 0 auto;
+}
+
+/* 统一代码高亮背景 */
+.vitepress-demo-block__code pre {
+  margin: 0;
+  padding: 16px 0;
+}
