@@ -45,7 +45,7 @@ npm install ai-ui-vue
 
 ```javascript
 // 只打包你引入的组件
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue"
 ```
 
 ### 2. CSS 按需注入

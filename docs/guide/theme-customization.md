@@ -57,7 +57,7 @@ Ai UI Vue 使用 CSS 变量实现主题定制，你可以通过修改 CSS 变量
 
 <script setup>
 import { ref, computed } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue"
 
 const defaultTheme = {
   '--ai-primary-color': { label: '主色', value: '#6366f1' },

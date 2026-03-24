@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </script>
 ```
 
@@ -32,7 +32,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </script>
 ```
 
@@ -50,7 +50,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </script>
 ```
 
@@ -68,7 +68,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </script>
 ```
 
@@ -96,7 +96,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </script>
 ```
 
@@ -139,7 +139,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </script>
 ```
 
@@ -161,7 +161,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </script>
 ```
 
@@ -188,7 +188,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </script>
 ```
 
@@ -231,7 +231,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const loading1 = ref(false)
 const loading2 = ref(false)
@@ -277,7 +277,7 @@ const toggleLoading = (field) => {
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const loading = ref(true)
 </script>
@@ -318,7 +318,7 @@ const loading = ref(true)
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const messages = ref([
   { id: 1, role: 'user', content: '你好，请介绍一下你自己' }
@@ -380,4 +380,3 @@ simulateStream()
   --ai-loader-color: #6366f1;
 }
 ```
-

@@ -13,7 +13,7 @@ Markdown 渲染组件，内置代码高亮，支持 GitHub Flavored Markdown，�
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const markdownText = ref(`
 # 标题一
@@ -48,7 +48,7 @@ const markdownText = ref(`
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const content = ref(`
 # 一级标题
@@ -79,7 +79,7 @@ const content = ref(`
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const content = ref(`
 **这是加粗文本**
@@ -108,7 +108,7 @@ const content = ref(`
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const content = ref(`
 \`\`\`javascript
@@ -175,7 +175,7 @@ const title = ref('Hello World')
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const content = ref(`
 ### 无序表示例
@@ -219,7 +219,7 @@ const content = ref(`
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const content = ref(`
 | 组件名 | 描述 | 状态 |
@@ -246,7 +246,7 @@ const content = ref(`
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const content = ref(`
 > 这是一级引用
@@ -278,7 +278,7 @@ const content = ref(`
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const reply = ref(`
 组合式 API 是 Vue3 引入的一种新的代码组织方式，主要优点包括：
@@ -306,7 +306,7 @@ const increment = () => count.value++
     <p>双倍: {{ double }}</p>
     <button @click="increment">增加</button>
   </div>
-</template>
+</script>
 \`\`\`
 
 | 特性 | Options API | Composition API |
@@ -339,7 +339,7 @@ const increment = () => count.value++
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const content = ref('')
 const isLoading = ref(true)
@@ -363,10 +363,9 @@ onMounted(() => {
 
   let i = 0
   const interval = setInterval(() => {
-    if (i <= fullText.length) {
-      content.value = fullText.slice(0, i)
-      i++
-    } else {
+    content.value = fullText.slice(0, i)
+    i++
+    if (i >= fullText.length) {
       clearInterval(interval)
       isLoading.value = false
     }
