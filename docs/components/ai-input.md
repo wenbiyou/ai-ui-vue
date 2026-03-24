@@ -20,7 +20,7 @@ Prompt 输入框，专为 AI 对话场景设计，支持自动调整高度、字
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const message = ref('')
 
@@ -51,7 +51,7 @@ const handleSubmit = () => {
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const message = ref('这是禁用的内容')
 </script>
@@ -75,7 +75,7 @@ const message = ref('这是禁用的内容')
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const message = ref('这是只读内容')
 </script>
@@ -100,7 +100,7 @@ const message = ref('这是只读内容')
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const message = ref('')
 </script>
@@ -138,7 +138,7 @@ const message = ref('')
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const message = ref('')
 
@@ -172,7 +172,7 @@ const handleSubmit = () => {
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const message = ref('')
 </script>
@@ -197,7 +197,7 @@ const message = ref('')
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const message = ref('')
 </script>
@@ -222,7 +222,7 @@ const message = ref('')
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const message = ref('')
 </script>
@@ -266,7 +266,7 @@ const message = ref('')
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const inputValue = ref('')
 const messages = ref([
@@ -325,7 +325,7 @@ const handleSend = () => {
 
 <script setup>
 import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../../packages"
 
 const inputValue = ref('')
 const isLoading = ref(false)
