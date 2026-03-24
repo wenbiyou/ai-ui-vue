@@ -10,7 +10,7 @@
     "test:ui": "vitest --ui",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mjs --fix",
     "format": "prettier --write ."
   },
   "keywords": [
@@ -42,5 +42,17 @@
   },
   "peerDependencies": {
     "vue": "^3.4.0"
+  },
+  "main": "./dist/ai-ui-vue.es.js",
+  "module": "./dist/ai-ui-vue.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ai-ui-vue.es.js",
+      "require": "./dist/ai-ui-vue.umd.js"
+    },
+    "./dist/style.css": {
+      "style": "./dist/style.css"
+    }
   }
 }

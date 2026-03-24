@@ -22,6 +22,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      'ai-ui-vue': resolve(__dirname, 'packages'),
       '@': resolve(__dirname, 'packages'),
       '@examples': resolve(__dirname, 'examples')
     }

@@ -1,7 +1,15 @@
 import { defineConfig } from 'vitepress'
 import demoblock from 'vitepress-theme-demoblock'
+import { resolve } from 'path'
 
 export default defineConfig({
+  vite: {
+    resolve: {
+      alias: {
+        'ai-ui-vue': resolve(__dirname, '../../packages'),
+      }
+    }
+  },
   title: 'Ai UI Vue',
   description: 'Vue3 AI 应用专用组件库',
   lang: 'zh-CN',
