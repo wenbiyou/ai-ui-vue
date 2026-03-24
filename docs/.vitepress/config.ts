@@ -6,7 +6,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        'ai-ui-vue': resolve(__dirname, '../../packages'),
+        'ai-ui-vue': resolve(__dirname, '../../'),
       }
     }
   },
