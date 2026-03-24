@@ -46,7 +46,7 @@ export interface AiMessageProps {
 const props = withDefaults(defineProps<AiMessageProps>(), {
   role: 'assistant',
   showAvatar: true,
-  showTimestamp: false
+  showTimestamp: false,
 })
 
 const defaultMessage = computed(() => {
@@ -60,7 +60,7 @@ const formattedTime = computed(() => {
   const date = new Date(props.timestamp)
   return date.toLocaleTimeString('zh-CN', {
     hour: '2-digit',
-    minute: '2-digit'
+    minute: '2-digit',
   })
 })
 </script>
@@ -75,10 +75,6 @@ const formattedTime = computed(() => {
 
 .ai-message--user {
   flex-direction: row-reverse;
-}
-
-.ai-message--user .ai-message__content-wrapper {
-  align-items: flex-end;
 }
 
 .ai-message--assistant {

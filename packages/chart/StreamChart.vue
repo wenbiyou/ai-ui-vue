@@ -27,7 +27,7 @@ export interface StreamDataPoint {
 
 /**
  * StreamChart 组件 Props 定义
- * @description 实时流式图表组件，支持动态推送数据实时渲染
+ * @description 实时流式图表组件，支持动态数据推送实时渲染
  */
 export interface StreamChartProps {
   /** 图表宽度 */
@@ -56,7 +56,7 @@ const props = withDefaults(defineProps<StreamChartProps>(), {
   streaming: false,
   lineColor: '#6366f1',
   fillColor: 'rgba(99, 102, 241, 0.1)',
-  maxPoints: 50
+  maxPoints: 50,
 })
 
 const canvasRef = ref<HTMLCanvasElement>()
@@ -152,7 +152,7 @@ const addPoint = (y: number) => {
   currentData.value.push({
     x: currentData.value.length,
     y,
-    t: Date.now()
+    t: Date.now(),
   })
 
   // 超出最大数量移除最早点
@@ -180,7 +180,7 @@ const expose = {
     currentData.value = []
     draw()
   },
-  data: currentData
+  data: currentData,
 }
 
 defineExpose(expose)

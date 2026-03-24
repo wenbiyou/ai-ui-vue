@@ -15,7 +15,7 @@
         <span class="token-counter__value">{{ charCount }}</span>
       </div>
       <div class="token-counter__stat">
-        <span class="token-counter__label">估算 Token</span>
+        <span class="token-counter__label">{{ mode === 'estimate' ? '估算 Token' : '精确 Token' }}</span>
         <span class="token-counter__value" :class="{ 'token-counter__value--warning': tokenCount >= warningLimit }">
           {{ tokenCount }}
           <span v-if="maxTokens">/ {{ maxTokens }}</span>
@@ -48,6 +48,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
+import { encode } from 'gpt-tokenizer'
 
 /**
  * 模型定价配置
@@ -75,12 +76,14 @@ export interface TokenCounterProps {
   defaultModel?: string
   /** 是否显示模型选择器 */
   showModelSelector?: boolean
-  /** Token 达到多少数量开始警告 */
+  /** Token 达到多少数量开始警告。小于 1 表示占最大上下文的比例 */
   warningLimit?: number
   /** 是否禁用 */
   disabled?: boolean
   /** 输入框占位符 */
   placeholder?: string
+  /** 计数模式：estimate 使用经验公式估算（快速，适合前端预览），accurate 使用 gpt-tokenizer 精确计数 */
+  mode?: 'estimate' | 'accurate'
 }
 
 const props = withDefaults(defineProps<TokenCounterProps>(), {
@@ -89,50 +92,52 @@ const props = withDefaults(defineProps<TokenCounterProps>(), {
     'gpt-3.5-turbo': {
       name: 'GPT-3.5 Turbo',
       pricePer1k: 0.0015,
-      maxTokens: 16384
+      maxTokens: 16384,
     },
     'gpt-4': {
       name: 'GPT-4',
       pricePer1k: 0.06,
-      maxTokens: 8192
+      maxTokens: 8192,
     },
     'gpt-4o': {
       name: 'GPT-4o',
       pricePer1k: 0.005,
-      maxTokens: 128000
+      maxTokens: 128000,
     },
     'claude-3-opus': {
       name: 'Claude 3 Opus',
       pricePer1k: 0.015,
-      maxTokens: 200000
+      maxTokens: 200000,
     },
     'claude-3-sonnet': {
       name: 'Claude 3 Sonnet',
       pricePer1k: 0.003,
-      maxTokens: 200000
+      maxTokens: 200000,
     },
     'ernie-4.0': {
       name: '文心一言 4.0',
       pricePer1k: 0.012,
-      maxTokens: 12000
+      maxTokens: 12000,
     },
     'qwen-max': {
       name: '通义千问 Max',
       pricePer1k: 0.012,
-      maxTokens: 32000
-    }
+      maxTokens: 32000,
+    },
   }),
   defaultModel: 'gpt-3.5-turbo',
   showModelSelector: true,
   warningLimit: 0.8,
   disabled: false,
-  placeholder: '输入文本，实时计算 Token 数量和预估成本...'
+  mode: 'estimate',
+  placeholder: '输入文本，实时计算 Token 数量和预估成本...',
 })
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
   (e: 'update:tokenCount', count: number): void
   (e: 'update:cost', cost: number): void
+  (e: 'warning', exceeded: boolean): void
 }>()
 
 const innerText = ref(props.modelValue)
@@ -161,7 +166,13 @@ const estimateTokens = (text: string): number => {
 
 const charCount = computed(() => innerText.value.length)
 
-const tokenCount = computed(() => estimateTokens(innerText.value))
+const tokenCount = computed(() => {
+  if (props.mode === 'estimate') {
+    return estimateTokens(innerText.value)
+  }
+  // accurate 模式使用 gpt-tokenizer 精确计数
+  return encode(innerText.value).length
+})
 
 const currentModelConfig = computed(() => {
   return props.models[selectedModel.value] || props.models[Object.keys(props.models)[0]]
@@ -185,6 +196,7 @@ const handleInput = () => {
   emit('update:modelValue', innerText.value)
   emit('update:tokenCount', tokenCount.value)
   emit('update:cost', estimatedCost.value)
+  emit('warning', tokenCount.value >= warningLimit.value)
 }
 
 const updatePrice = () => {
@@ -195,6 +207,10 @@ const updatePrice = () => {
 watch(() => props.modelValue, (val) => {
   innerText.value = val
   handleInput()
+})
+
+watch(() => tokenCount.value, (count) => {
+  emit('warning', count >= warningLimit.value)
 })
 </script>
 

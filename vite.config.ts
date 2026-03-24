@@ -4,10 +4,9 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  root: './',
   build: {
     lib: {
-      entry: resolve(__dirname, 'packages/index.ts'),
+      entry: resolve('./', 'packages/index.ts'),
       name: 'AiUiVue',
       fileName: (format) => `ai-ui-vue.${format}.js`
     },
@@ -22,9 +21,9 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'ai-ui-vue': resolve(__dirname, 'packages'),
-      '@': resolve(__dirname, 'packages'),
-      '@examples': resolve(__dirname, 'examples')
+      'ai-ui-vue': resolve('./', 'packages'),
+      '@': resolve('./', 'packages'),
+      '@examples': resolve('./', 'examples')
     }
   },
   server: {

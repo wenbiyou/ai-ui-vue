@@ -1,5 +1,4 @@
-<template>
-  <div class="example-page">
+<template>   <div class="example-page">
     <h1>AiInput 示例</h1>
 
     <!-- 基础用法 -->

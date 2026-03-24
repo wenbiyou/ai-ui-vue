@@ -53,8 +53,8 @@ marked.use({
           .replace(/'/g, '&#39;')
         return `<pre><code class="hljs">${escapedCode}</code></pre>`
       }
-    }
-  }
+    },
+  },
 })
 
 /**
@@ -72,13 +72,13 @@ export interface AiMarkdownProps {
 
 const props = withDefaults(defineProps<AiMarkdownProps>(), {
   breaks: true,
-  gfm: true
+  gfm: true,
 })
 
 const renderedHtml = computed(() => {
   return marked.parse(props.content, {
     breaks: props.breaks,
-    gfm: props.gfm
+    gfm: props.gfm,
   })
 })
 </script>
@@ -100,11 +100,19 @@ const renderedHtml = computed(() => {
   font-weight: 600;
 }
 
-.ai-markdown :deep(h1) { font-size: 1.75em; }
-.ai-markdown :deep(h2) { font-size: 1.5em; }
-.ai-markdown :deep(h3) { font-size: 1.25em; }
+.ai-markdown :deep(h1) {
+  font-size: 1.75em;
+}
+.ai-markdown :deep(h2) {
+  font-size: 1.5em;
+}
+.ai-markdown :deep(h3) {
+  font-size: 1.25em;
+}
 
-.ai-markdown :deep(p) { margin: 0.5em 0; }
+.ai-markdown :deep(p) {
+  margin: 0.5em 0;
+}
 
 .ai-markdown :deep(code) {
   background: var(--ai-code-bg, #f3f4f6);
@@ -133,7 +141,9 @@ const renderedHtml = computed(() => {
   margin: 0.5em 0;
 }
 
-.ai-markdown :deep(li) { margin: 0.25em 0; }
+.ai-markdown :deep(li) {
+  margin: 0.25em 0;
+}
 
 .ai-markdown :deep(blockquote) {
   border-left: 4px solid var(--ai-border-color, #e5e7eb);

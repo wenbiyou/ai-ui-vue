@@ -71,6 +71,8 @@ export interface AiChatProps {
   showAvatars?: boolean
   /** 是否显示时间戳 */
   showTimestamps?: boolean
+  /** 是否自动滚动到底部当消息更新 */
+  autoScroll?: boolean
 }
 
 /**
@@ -89,7 +91,8 @@ const props = withDefaults(defineProps<AiChatProps>(), {
   disabled: false,
   placeholder: '输入消息...',
   showAvatars: true,
-  showTimestamps: false
+  showTimestamps: false,
+  autoScroll: true,
 })
 
 const emit = defineEmits<AiChatEmits>()
@@ -99,6 +102,7 @@ const messagesRef = ref<HTMLDivElement>()
 
 /** 自动滚动到底部 */
 const scrollToBottom = () => {
+  if (!props.autoScroll) return
   nextTick(() => {
     if (messagesRef.value) {
       messagesRef.value.scrollTop = messagesRef.value.scrollHeight
@@ -119,8 +123,8 @@ const handleSubmit = () => {
     {
       role: 'user' as const,
       content,
-      timestamp: new Date()
-    }
+      timestamp: new Date(),
+    },
   ]
 
   emit('update:modelValue', newMessages)

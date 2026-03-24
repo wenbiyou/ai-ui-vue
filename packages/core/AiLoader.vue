@@ -38,7 +38,7 @@ export interface AiLoaderProps {
 
 const props = withDefaults(defineProps<AiLoaderProps>(), {
   type: 'typing',
-  size: 'medium'
+  size: 'medium',
 })
 </script>
 
@@ -50,8 +50,12 @@ const props = withDefaults(defineProps<AiLoaderProps>(), {
   gap: 8px;
 }
 
-.ai-loader--small { transform: scale(0.75); }
-.ai-loader--large { transform: scale(1.25); }
+.ai-loader--small {
+  transform: scale(0.75);
+}
+.ai-loader--large {
+  transform: scale(1.25);
+}
 
 /* Dots */
 .ai-loader__dots {
@@ -69,8 +73,14 @@ const props = withDefaults(defineProps<AiLoaderProps>(), {
 }
 
 @keyframes ai-loader-bounce {
-  0%, 80%, 100% { transform: scale(0); }
-  40% { transform: scale(1); }
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
 }
 
 /* Spinner */
@@ -94,8 +104,14 @@ const props = withDefaults(defineProps<AiLoaderProps>(), {
 }
 
 @keyframes ai-loader-spinner {
-  0% { transform: rotate(0deg); opacity: 1; }
-  100% { transform: rotate(360deg); opacity: 0.15; }
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.15;
+  }
 }
 
 /* Typing */
@@ -114,8 +130,14 @@ const props = withDefaults(defineProps<AiLoaderProps>(), {
 }
 
 @keyframes ai-loader-typing {
-  0%, 60%, 100% { transform: translateY(0); }
-  30% { transform: translateY(-6px); }
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
 }
 
 .ai-loader__text {

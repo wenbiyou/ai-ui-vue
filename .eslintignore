@@ -1,0 +1,7 @@
+node_modules
+dist
+docs/.vitepress
+docs/.vitepress/cache
+**/*.d.ts
+**/*.example.vue
+examples/

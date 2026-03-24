@@ -74,7 +74,7 @@ const props = withDefaults(defineProps<AiInputProps>(), {
   showFooter: true,
   showCharCount: true,
   autofocus: false,
-  autoResize: true
+  autoResize: true,
 })
 
 /** 组件事件发射 */
@@ -85,7 +85,7 @@ const isFocused = ref(false)
 
 const innerValue = computed({
   get: () => props.modelValue,
-  set: (val) => emit('update:modelValue', val)
+  set: (val) => emit('update:modelValue', val),
 })
 
 const currentLength = computed(() => innerValue.value.length)

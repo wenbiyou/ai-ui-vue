@@ -91,7 +91,7 @@ export interface SmartFormField {
   description?: string
   /** 选项（select 类型必填） */
   options?: Array<{ label: string; value: any }>
-  /** 是否启用 AI 功能 */
+  /** 是否启用 AI 补全，默认 false */
   aiEnabled?: boolean
 }
 
@@ -125,21 +125,21 @@ export interface SmartFormEmits {
 const props = withDefaults(defineProps<SmartFormProps>(), {
   modelValue: () => ({}),
   disabled: false,
-  showAiActions: true
+  showAiActions: true,
 })
 
 const emit = defineEmits<SmartFormEmits>()
 
 const currentModel = computed({
   get: () => props.modelValue,
-  set: (val) => emit('update:modelValue', val)
+  set: (val) => emit('update:modelValue', val),
 })
 
 const errors = ref<Record<string, string>>({})
 const aiCompleting = ref<string | null>(null)
 
 const validateField = (key: string) => {
-  const field = props.fields.find(f => f.key === key)
+  const field = props.fields.find((f) => f.key === key)
   if (!field) return true
 
   let error = ''
@@ -183,7 +183,7 @@ const triggerAiCompletion = (key: string) => {
 // 暴露给父组件
 const expose = {
   validate: validateAll,
-  errors: errors
+  errors: errors,
 }
 
 defineExpose(expose)
