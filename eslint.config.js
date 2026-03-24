@@ -10,12 +10,16 @@ export default [
     ignores: [
       'node_modules/**',
       'dist/**',
+      '**/dist/**',
       'docs/.vitepress/**',
       'docs/.vitepress/cache/**',
+      'docs/.vitepress/dist/**',
       '**/*.d.ts',
       '**/*.example.vue',
       'examples/**',
     ],
+  },
+  {
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -42,7 +46,7 @@ export default [
     },
   },
   {
-    files: ['**/*.{ts,tsx,vue}'],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
       parser: parserTypeScript,
     },
@@ -51,6 +55,11 @@ export default [
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
+    },
+  },
+  {
+    files: ['**/*.vue'],
+    rules: {
       'vue/multi-word-component-names': 'off',
     },
   },

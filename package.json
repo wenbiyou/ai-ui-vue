@@ -8,7 +8,7 @@
     "build": "vue-tsc && vite build",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "register:components": "vitepress-rc --docsDir docs",
+    "register:components": "vitepress-register-components --docsDir docs",
     "docs:dev": "npm run register:components && vitepress dev docs",
     "docs:build": "npm run register:components && vitepress build docs",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mjs --fix",
