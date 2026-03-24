@@ -46,6 +46,12 @@ export default defineConfig({
           items: [
             { text: 'SSE 流式响应', link: '/guide/sse-demo' }
           ]
+        },
+        {
+          text: '适配',
+          items: [
+            { text: '移动端适配', link: '/guide/mobile' }
+          ]
         }
       ],
       '/components/': [
