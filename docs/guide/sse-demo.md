@@ -53,7 +53,7 @@ const messages = ref([
 const loading = ref(false)
 
 // 模拟流式输出的文本
-const getResponse = (question: string): string[] => {
+const getResponse = (question) => {
   const responses = [
     '你好！',
     '我收到了你的问题：',

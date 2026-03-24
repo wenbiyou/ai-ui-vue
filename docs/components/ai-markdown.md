@@ -22,7 +22,7 @@ const markdownText = ref(`
 
 ## 二级标题
 
-这是一个[链接](https://github.com)，带有行内代码 \`const hello = "world"\`。
+这是一个[链接](https://github.com)，带有行内代码 'const hello = "world"'。
 
 > 这是一段引用blockquote
 
@@ -99,6 +99,7 @@ const content = ref(`
 
 ### 代码高亮
 
+<!-- 代码高亮示例暂时移除，因为 demoblock 插件解析有问题 -->
 :::demo
 
 ```vue
@@ -111,53 +112,9 @@ import { ref } from 'vue'
 import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 
 const content = ref(`
-\`\`\`javascript
-// JavaScript 代码高亮示例
-function greet(name) {
-  console.log(\`Hello, \${name}!\`);
-  return \`Hello, \${name}!\`;
-}
+# 代码高亮示例
 
-const arrowFunc = () => {
-  const count = ref(0);
-  const increment = () => count.value++;
-  return { count, increment };
-};
-\`\`\`
-
-\`\`\`typescript
-// TypeScript 代码高亮示例
-interface Person {
-  name: string;
-  age: number;
-  greet(): string;
-}
-
-class User implements Person {
-  constructor(
-    public name: string,
-    public age: number
-  ) {}
-
-  greet(): string {
-    return \`Hello, my name is \${this.name}\`;
-  }
-}
-\`\`\`
-
-\`\`\`vue
-<template>
-  <div class="component">
-    <h1>{{ title }}</h1>
-  </div>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-
-const title = ref('Hello World')
-</script>
-\`\`\`
+此示例暂时移除，因为 demoblock 插件解析嵌套代码块有问题。
 `)
 </script>
 ```
@@ -290,23 +247,14 @@ const reply = ref(`
 
 ## 示例代码
 
-\`\`\`vue
-<script setup>
+\`\`\`javascript
+// Composition API 示例
 import { ref, computed } from 'vue'
 
 const count = ref(0)
 const double = computed(() => count.value * 2)
 
 const increment = () => count.value++
-</script>
-
-<template>
-  <div>
-    <p>计数: {{ count }}</p>
-    <p>双倍: {{ double }}</p>
-    <button @click="increment">增加</button>
-  </div>
-</script>
 \`\`\`
 
 | 特性 | Options API | Composition API |

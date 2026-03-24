@@ -16,12 +16,12 @@ Ai UI Vue 使用 CSS 变量实现主题定制，你可以通过修改 CSS 变量
           <input
             type="color"
             :value="item.value"
-            @input="updateTheme(key, ($event.target as HTMLInputElement).value)"
+            @input="updateTheme(key, ($event.target).value)"
           />
           <input
             type="text"
             :value="item.value"
-            @input="updateTheme(key, ($event.target as HTMLInputElement).value)"
+            @input="updateTheme(key, ($event.target).value)"
           />
         </div>
       </div>
@@ -71,7 +71,7 @@ const defaultTheme = {
 const theme = ref({ ...defaultTheme })
 const inputValue = ref('')
 
-const updateTheme = (key: string, value: string) => {
+const updateTheme = (key, value) => {
   theme.value[key].value = value
   document.documentElement.style.setProperty(key, value)
 }
@@ -84,7 +84,7 @@ const resetTheme = () => {
 }
 
 const customThemeStyle = computed(() => {
-  const style: Record<string, string> = {}
+  const style = {}
   Object.entries(theme.value).forEach(([key, item]) => {
     style[key] = item.value
   })

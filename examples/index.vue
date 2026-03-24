@@ -58,12 +58,9 @@
     </div>
 
     <div class="demo-container" v-if="activeComponent">
-      <div class="demo-header">
-        <h2>{{ activeComponent }} 示例</h2>
-        <button @click="activeComponent = null" class="btn-close">关闭</button>
-      </div>
       <div class="demo-content">
-        <component :is="activeComponent + '.example'" />
+        <button @click="activeComponent = null" class="btn-close">关闭</button>
+        <component :is="currentExampleComponent" v-if="currentExampleComponent" />
       </div>
     </div>
   </div>
@@ -71,14 +68,29 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
-import { ref } from 'vue'
+import { ref, watch, computed } from 'vue'
 
-const AiInputExample = defineAsyncComponent(() => import('./core/AiInput.example.vue'))
-const AiMessageExample = defineAsyncComponent(() => import('./core/AiMessage.example.vue'))
-const AiLoaderExample = defineAsyncComponent(() => import('./core/AiLoader.example.vue'))
-const AiMarkdownExample = defineAsyncComponent(() => import('./markdown/AiMarkdown.example.vue'))
+const AiInputExample = defineAsyncComponent(() => import('../packages/core/AiInput.example.vue'))
+const AiMessageExample = defineAsyncComponent(() => import('../packages/core/AiMessage.example.vue'))
+const AiLoaderExample = defineAsyncComponent(() => import('../packages/core/AiLoader.example.vue'))
+const AiMarkdownExample = defineAsyncComponent(() => import('../packages/markdown/AiMarkdown.example.vue'))
 
 const activeComponent = ref<string | null>(null)
+
+const componentMap = {
+  AiInput: AiInputExample,
+  AiMessage: AiMessageExample,
+  AiLoader: AiLoaderExample,
+  AiMarkdown: AiMarkdownExample,
+}
+
+const currentExampleComponent = computed(() => {
+  return activeComponent.value ? componentMap[activeComponent.value as keyof typeof componentMap] : null
+})
+
+watch(activeComponent, (newVal) => {
+  console.log('当前激活的组件示例:', newVal)
+})
 </script>
 
 <style scoped>
@@ -177,6 +189,7 @@ const activeComponent = ref<string | null>(null)
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   z-index: 1000;
   padding: 40px;
 }
@@ -188,6 +201,7 @@ const activeComponent = ref<string | null>(null)
   max-height: 90vh;
   overflow-y: auto;
   width: 100%;
+  position: relative;
 }
 
 .demo-header {
@@ -215,6 +229,10 @@ const activeComponent = ref<string | null>(null)
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  transition: background 0.2s;
 }
 
 .btn-close:hover {

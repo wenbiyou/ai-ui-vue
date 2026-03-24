@@ -1,24 +1,26 @@
 import { defineConfig } from 'vitepress'
-import demoblock from 'vitepress-theme-demoblock'
+import { demoblockPlugin, demoblockVitePlugin } from 'vitepress-theme-demoblock'
 import { resolve } from 'path'
 
 export default defineConfig({
-  vite: {
-    resolve: {
-      alias: {
-        'ai-ui-vue': resolve(__dirname, '../../../'),
-      }
-    }
-  },
+
   title: 'Ai UI Vue',
   description: 'Vue3 AI 应用专用组件库',
   lang: 'zh-CN',
   base: '/ai-ui-vue/',
 
   markdown: {
-    frontmatter: false,
     config: (md) => {
-      md.use(demoblock)
+      md.use(demoblockPlugin)
+    }
+  },
+
+  vite: {
+    plugins: [demoblockVitePlugin()],
+    resolve: {
+      alias: {
+        'ai-ui-vue': resolve(__dirname, '../../packages'),
+      }
     }
   },
 

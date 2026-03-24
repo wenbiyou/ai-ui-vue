@@ -118,7 +118,7 @@ const data = [
   { name: 'Ant Design Vue', gzip: 150, highlight: false }
 ]
 
-const width = (gzip: number) => {
+const width = (gzip) => {
   // 最大 100 kB 对应 100% 宽度
   return Math.min((gzip / 150) * 100, 100)
 }

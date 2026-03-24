@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 </script>
 ```
 
@@ -32,7 +32,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 </script>
 ```
 
@@ -50,7 +50,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 </script>
 ```
 
@@ -68,7 +68,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 </script>
 ```
 
@@ -96,7 +96,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 </script>
 ```
 
@@ -110,7 +110,9 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 <template>
   <div style="display: flex; flex-direction: column; gap: 24px;">
     <div>
-      <div style="margin-bottom: 8px; font-size: 14px; color: #6b7280;">typing 三种尺寸</div>
+      <div style="margin-bottom: 8px; font-size: 14px; color: #6b7280;">
+        typing 三种尺寸
+      </div>
       <div style="display: flex; gap: 20px; align-items: center;">
         <AiLoader type="typing" size="small" />
         <AiLoader type="typing" size="medium" />
@@ -119,7 +121,9 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
     </div>
 
     <div>
-      <div style="margin-bottom: 8px; font-size: 14px; color: #6b7280;">dots 三种尺寸</div>
+      <div style="margin-bottom: 8px; font-size: 14px; color: #6b7280;">
+        dots 三种尺寸
+      </div>
       <div style="display: flex; gap: 20px; align-items: center;">
         <AiLoader type="dots" size="small" />
         <AiLoader type="dots" size="medium" />
@@ -128,7 +132,9 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
     </div>
 
     <div>
-      <div style="margin-bottom: 8px; font-size: 14px; color: #6b7280;">spinner 三种尺寸</div>
+      <div style="margin-bottom: 8px; font-size: 14px; color: #6b7280;">
+        spinner 三种尺寸
+      </div>
       <div style="display: flex; gap: 20px; align-items: center;">
         <AiLoader type="spinner" size="small" />
         <AiLoader type="spinner" size="medium" />
@@ -139,7 +145,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 </script>
 ```
 
@@ -161,7 +167,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 </script>
 ```
 
@@ -188,7 +194,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </template>
 
 <script setup>
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 </script>
 ```
 
@@ -216,7 +222,7 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
     </button>
 
     <button
-      style="padding: 8px 16px; border-radius: 6px; border: none; background: #6366f1; color: white; min-width: 100px;"
+      style="padding: 8px 16px; border-radius: 6px; border: none; background: #152de6; color: white; min-width: 100px;"
       :disabled="loading2"
       @click="toggleLoading('loading2')"
     >
@@ -230,21 +236,21 @@ import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const loading1 = ref(false)
-const loading2 = ref(false)
+const loading1 = ref(false);
+const loading2 = ref(false);
 
 const toggleLoading = (field) => {
-  if (field === 'loading1') {
-    loading1.value = true
-    setTimeout(() => loading1.value = false, 2000)
+  if (field === "loading1") {
+    loading1.value = true;
+    setTimeout(() => (loading1.value = false), 2000);
   } else {
-    loading2.value = true
-    setTimeout(() => loading2.value = false, 2000)
+    loading2.value = true;
+    setTimeout(() => (loading2.value = false), 2000);
   }
-}
+};
 </script>
 ```
 
@@ -258,28 +264,36 @@ const toggleLoading = (field) => {
 
 ```vue
 <template>
-  <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; width: 300px;">
-    <div v-if="loading" style="display: flex; justify-content: center; padding: 40px;">
+  <div
+    style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; width: 300px;"
+  >
+    <div
+      v-if="loading"
+      style="display: flex; justify-content: center; padding: 40px;"
+    >
       <AiLoader type="spinner" size="large" />
     </div>
     <div v-else>
       <h3 style="margin: 0 0 8px 0;">AI 组件库</h3>
-      <p style="margin: 0; color: #6b7280;">Vue3 AI 应用专用组件库，专注于流式对话、智能表单、Markdown 渲染等 AI 场景。</p>
+      <p style="margin: 0; color: #6b7280;">
+        Vue3 AI 应用专用组件库，专注于流式对话、智能表单、Markdown 渲染等 AI
+        场景。
+      </p>
     </div>
     <button
       style="margin-top: 16px; padding: 6px 12px; border: 1px solid #e5e7eb; border-radius: 4px; background: white; cursor: pointer;"
       @click="loading = !loading"
     >
-      {{ loading ? '显示内容' : '重新加载' }}
+      {{ loading ? "显示内容" : "重新加载" }}
     </button>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const loading = ref(true)
+const loading = ref(true);
 </script>
 ```
 
@@ -293,7 +307,9 @@ const loading = ref(true)
 
 ```vue
 <template>
-  <div style="display: flex; flex-direction: column; gap: 16px; max-width: 600px;">
+  <div
+    style="display: flex; flex-direction: column; gap: 16px; max-width: 600px;"
+  >
     <AiMessage
       v-for="msg in messages"
       :key="msg.id"
@@ -317,39 +333,40 @@ const loading = ref(true)
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
 const messages = ref([
-  { id: 1, role: 'user', content: '你好，请介绍一下你自己' }
-])
-const isCompleted = ref(false)
+  { id: 1, role: "user", content: "你好，请介绍一下你自己" },
+]);
+const isCompleted = ref(false);
 
 const simulateStream = () => {
-  messages.value = [{ id: 1, role: 'user', content: '你好，请介绍一下你自己' }]
-  isCompleted.value = false
+  messages.value = [{ id: 1, role: "user", content: "你好，请介绍一下你自己" }];
+  isCompleted.value = false;
 
   // 添加加载状态
-  const aiId = Date.now()
+  const aiId = Date.now();
   messages.value.push({
     id: aiId,
-    role: 'assistant',
-    loading: true
-  })
+    role: "assistant",
+    loading: true,
+  });
 
   // 模拟延迟后回复
   setTimeout(() => {
-    const index = messages.value.findIndex(m => m.id === aiId)
+    const index = messages.value.findIndex((m) => m.id === aiId);
     if (index > -1) {
-      messages.value[index].loading = false
-      messages.value[index].content = '我是 Ai UI Vue，一个专门为 AI 应用设计的 Vue3 组件库。我提供了 AiInput、AiMessage、AiLoader、AiMarkdown 等核心组件，帮助你快速搭建 AI 对话应用。'
+      messages.value[index].loading = false;
+      messages.value[index].content =
+        "我是 Ai UI Vue，一个专门为 AI 应用设计的 Vue3 组件库。我提供了 AiInput、AiMessage、AiLoader、AiMarkdown 等核心组件，帮助你快速搭建 AI 对话应用。";
     }
-    isCompleted.value = true
-  }, 2500)
-}
+    isCompleted.value = true;
+  }, 2500);
+};
 
 // 初始加载
-simulateStream()
+simulateStream();
 </script>
 ```
 
@@ -359,19 +376,19 @@ simulateStream()
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
+| 参数 | 说明         | 类型                              | 默认值     |
+| ---- | ------------ | --------------------------------- | ---------- |
 | type | 加载动画类型 | `'dots' \| 'spinner' \| 'typing'` | `'typing'` |
-| text | 加载提示文本 | `string` | - |
-| size | 组件尺寸 | `'small' \| 'medium' \| 'large'` | `'medium'` |
+| text | 加载提示文本 | `string`                          | -          |
+| size | 组件尺寸     | `'small' \| 'medium' \| 'large'`  | `'medium'` |
 
 ## 选择指南
 
-| 类型 | 适用场景 | 特点 |
-|------|----------|------|
-| `typing` | AI 思考/生成回复中 | 打字机光标效果，对话场景推荐 |
-| `dots` | 数据加载中 | 简洁圆点跳动，占用空间小 |
-| `spinner` | 长时间处理操作 | 传统旋转动画，用户熟悉 |
+| 类型      | 适用场景           | 特点                         |
+| --------- | ------------------ | ---------------------------- |
+| `typing`  | AI 思考/生成回复中 | 打字机光标效果，对话场景推荐 |
+| `dots`    | 数据加载中         | 简洁圆点跳动，占用空间小     |
+| `spinner` | 长时间处理操作     | 传统旋转动画，用户熟悉       |
 
 ## 主题定制
 

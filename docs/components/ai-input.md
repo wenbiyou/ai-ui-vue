@@ -19,14 +19,14 @@ Prompt 输入框，专为 AI 对话场景设计，支持自动调整高度、字
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const message = ref('')
+const message = ref("");
 
 const handleSubmit = () => {
-  console.log('提交:', message.value)
-}
+  console.log("提交:", message.value);
+};
 </script>
 ```
 
@@ -42,18 +42,14 @@ const handleSubmit = () => {
 
 ```vue
 <template>
-  <AiInput
-    v-model="message"
-    disabled
-    placeholder="输入框已禁用"
-  />
+  <AiInput v-model="message" disabled placeholder="输入框已禁用" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const message = ref('这是禁用的内容')
+const message = ref("这是禁用的内容");
 </script>
 ```
 
@@ -67,17 +63,14 @@ const message = ref('这是禁用的内容')
 
 ```vue
 <template>
-  <AiInput
-    v-model="message"
-    readonly
-  />
+  <AiInput v-model="message" readonly />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const message = ref('这是只读内容')
+const message = ref("这是只读内容");
 </script>
 ```
 
@@ -91,18 +84,14 @@ const message = ref('这是只读内容')
 
 ```vue
 <template>
-  <AiInput
-    v-model="message"
-    autofocus
-    placeholder="输入框已自动聚焦"
-  />
+  <AiInput v-model="message" autofocus placeholder="输入框已自动聚焦" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const message = ref('')
+const message = ref("");
 </script>
 ```
 
@@ -137,18 +126,18 @@ const message = ref('')
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const message = ref('')
+const message = ref("");
 
 const handleClear = () => {
-  message.value = ''
-}
+  message.value = "";
+};
 
 const handleSubmit = () => {
-  alert('发送: ' + message.value)
-}
+  alert("发送: " + message.value);
+};
 </script>
 ```
 
@@ -171,10 +160,10 @@ const handleSubmit = () => {
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const message = ref('')
+const message = ref("");
 </script>
 ```
 
@@ -188,18 +177,14 @@ const message = ref('')
 
 ```vue
 <template>
-  <AiInput
-    v-model="message"
-    :show-footer="false"
-    placeholder="简洁模式"
-  />
+  <AiInput v-model="message" :show-footer="false" placeholder="简洁模式" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const message = ref('')
+const message = ref("");
 </script>
 ```
 
@@ -213,18 +198,14 @@ const message = ref('')
 
 ```vue
 <template>
-  <AiInput
-    v-model="message"
-    :auto-resize="false"
-    style="height: 100px"
-  />
+  <AiInput v-model="message" :auto-resize="false" style="height: 100px" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const message = ref('')
+const message = ref("");
 </script>
 ```
 
@@ -240,7 +221,9 @@ const message = ref('')
 
 ```vue
 <template>
-  <div style="display: flex; flex-direction: column; gap: 16px; max-width: 600px; margin: 0 auto;">
+  <div
+    style="display: flex; flex-direction: column; gap: 16px; max-width: 600px; margin: 0 auto;"
+  >
     <!-- 消息列表 -->
     <div
       style="border: 1px solid var(--ai-border-color); border-radius: 8px; padding: 12px; min-height: 200px; max-height: 400px; overflow-y: auto;"
@@ -265,30 +248,30 @@ const message = ref('')
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const inputValue = ref('')
+const inputValue = ref("");
 const messages = ref([
   {
     id: 1,
-    role: 'assistant',
-    content: '你好！我是 AI 助手，有什么可以帮你的吗？',
-    timestamp: '10:30'
-  }
-])
+    role: "assistant",
+    content: "你好！我是 AI 助手，有什么可以帮你的吗？",
+    timestamp: "10:30",
+  },
+]);
 
 const handleSend = () => {
-  if (!inputValue.value.trim()) return
+  if (!inputValue.value.trim()) return;
 
   messages.value.push({
     id: Date.now(),
-    role: 'user',
+    role: "user",
     content: inputValue.value,
-    timestamp: new Date().toLocaleTimeString().slice(0, 5)
-  })
-  inputValue.value = ''
-}
+    timestamp: new Date().toLocaleTimeString().slice(0, 5),
+  });
+  inputValue.value = "";
+};
 </script>
 ```
 
@@ -302,7 +285,9 @@ const handleSend = () => {
 
 ```vue
 <template>
-  <div style="display: flex; flex-direction: column; gap: 16px; max-width: 600px;">
+  <div
+    style="display: flex; flex-direction: column; gap: 16px; max-width: 600px;"
+  >
     <AiMessage
       v-for="msg in messages"
       :key="msg.id"
@@ -324,46 +309,44 @@ const handleSend = () => {
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { AiInput, AiMessage, AiLoader, AiMarkdown } from 'ai-ui-vue'
+import { ref } from "vue";
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "ai-ui-vue";
 
-const inputValue = ref('')
-const isLoading = ref(false)
-const messages = ref([
-  { id: 1, role: 'assistant', content: '你好，请提问' }
-])
+const inputValue = ref("");
+const isLoading = ref(false);
+const messages = ref([{ id: 1, role: "assistant", content: "你好，请提问" }]);
 
 const handleAsk = () => {
-  if (!inputValue.value.trim()) return
+  if (!inputValue.value.trim()) return;
 
   // 添加用户消息
   messages.value.push({
     id: Date.now(),
-    role: 'user',
-    content: inputValue.value
-  })
+    role: "user",
+    content: inputValue.value,
+  });
 
   // 添加 AI 加载状态消息
-  const aiMsgId = Date.now() + 1
+  const aiMsgId = Date.now() + 1;
   messages.value.push({
     id: aiMsgId,
-    role: 'assistant',
-    loading: true
-  })
+    role: "assistant",
+    loading: true,
+  });
 
-  isLoading.value = true
-  inputValue.value = ''
+  isLoading.value = true;
+  inputValue.value = "";
 
   // 模拟 AI 回复延迟
   setTimeout(() => {
-    const index = messages.value.findIndex(m => m.id === aiMsgId)
+    const index = messages.value.findIndex((m) => m.id === aiMsgId);
     if (index > -1) {
-      messages.value[index].content = '这是 AI 的回复内容'
-      messages.value[index].loading = false
+      messages.value[index].content = "这是 AI 的回复内容";
+      messages.value[index].loading = false;
     }
-    isLoading.value = false
-  }, 2000)
-}
+    isLoading.value = false;
+  }, 2000);
+};
 </script>
 ```
 
@@ -371,40 +354,40 @@ const handleAsk = () => {
 
 ## 键盘快捷键
 
-| 快捷键 | 功能 |
-|---------|------|
+| 快捷键                | 功能                       |
+| --------------------- | -------------------------- |
 | `Enter`（不按 Shift） | 触发 `submit` 事件提交内容 |
-| `Shift + Enter` | 插入换行符 |
-| `Escape` | 触发 `cancel` 事件取消输入 |
+| `Shift + Enter`       | 插入换行符                 |
+| `Escape`              | 触发 `cancel` 事件取消输入 |
 
 ## API
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| modelValue | 输入框的值（支持 v-model） | `string` | `''` |
-| placeholder | 占位符文本 | `string` | `'输入内容...'` |
-| disabled | 是否禁用 | `boolean` | `false` |
-| readonly | 是否只读 | `boolean` | `false` |
-| maxlength | 最大输入长度 | `number` | - |
-| showFooter | 是否显示底部操作栏 | `boolean` | `true` |
-| showCharCount | 是否显示字符计数 | `boolean` | `true` |
-| autofocus | 是否自动聚焦 | `boolean` | `false` |
-| autoResize | 是否自动调整高度 | `boolean` | `true` |
+| 参数          | 说明                       | 类型      | 默认值          |
+| ------------- | -------------------------- | --------- | --------------- |
+| modelValue    | 输入框的值（支持 v-model） | `string`  | `''`            |
+| placeholder   | 占位符文本                 | `string`  | `'输入内容...'` |
+| disabled      | 是否禁用                   | `boolean` | `false`         |
+| readonly      | 是否只读                   | `boolean` | `false`         |
+| maxlength     | 最大输入长度               | `number`  | -               |
+| showFooter    | 是否显示底部操作栏         | `boolean` | `true`          |
+| showCharCount | 是否显示字符计数           | `boolean` | `true`          |
+| autofocus     | 是否自动聚焦               | `boolean` | `false`         |
+| autoResize    | 是否自动调整高度           | `boolean` | `true`          |
 
 ### Events
 
-| 事件名 | 说明 | 参数 |
-|--------|------|------|
-| update:modelValue | 输入内容更新 | `value: string` |
-| submit | 用户按下 Enter 提交 | - |
-| cancel | 用户按下 Escape 取消 | - |
+| 事件名            | 说明                 | 参数            |
+| ----------------- | -------------------- | --------------- |
+| update:modelValue | 输入内容更新         | `value: string` |
+| submit            | 用户按下 Enter 提交  | -               |
+| cancel            | 用户按下 Escape 取消 | -               |
 
 ### Slots
 
-| 插槽名 | 说明 |
-|--------|------|
+| 插槽名  | 说明                 |
+| ------- | -------------------- |
 | actions | 底部操作栏自定义内容 |
 
 ## 主题定制
