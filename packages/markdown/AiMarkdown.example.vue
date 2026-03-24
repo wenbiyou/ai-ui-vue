@@ -115,7 +115,7 @@ greet('Vue');
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import AiMarkdown from '../markdown/AiMarkdown.vue'
+import { AiMarkdown } from 'ai-ui-vue'
 
 const markdownText = ref(`
 # 欢迎使用 Ai UI Vue
@@ -205,7 +205,7 @@ const aiCodeExample = ref(`
 \`\`\`vue
 &lt;script setup&gt;
 import { ref } from 'vue'
-import { useStream } from '@ai-ui/vue'
+import { useStream } from 'ai-ui-vue'
 
 const messages = ref([])
 

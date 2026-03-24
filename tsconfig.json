@@ -17,7 +17,8 @@
     "noFallthroughCasesInSwitch": true,
     "declaration": true,
     "declarationDir": "./dist",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "rootDir": "packages"
   },
   "include": ["packages/**/*.ts", "packages/**/*.vue"],
   "exclude": ["node_modules", "dist", "**/*.test.ts"]

@@ -34,7 +34,7 @@ const messages = ref([
 const loading = ref(false)
 
 // 模拟流式回复效果
-const mockStreamResponse = async (content: string) => {
+const mockStreamResponse = async (content) => {
   const responses = [
     '你好！',
     `我收到了你的消息：**${content}**\n\n`,
@@ -61,7 +61,7 @@ const mockStreamResponse = async (content: string) => {
   loading.value = false
 }
 
-const handleSubmit = (content: string) => {
+const handleSubmit = (content) => {
   loading.value = true
   // 模拟网络延迟后开始流式回复
   setTimeout(() => {
