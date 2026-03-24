@@ -76,13 +76,17 @@ export default defineConfig({
           items: [
             { text: 'AiInput', link: '/components/ai-input' },
             { text: 'AiMessage', link: '/components/ai-message' },
-            { text: 'AiLoader', link: '/components/ai-loader' }
+            { text: 'AiLoader', link: '/components/ai-loader' },
+            { text: 'AiChat', link: '/components/ai-chat' }
           ]
         },
         {
           text: '功能组件',
           items: [
-            { text: 'AiMarkdown', link: '/components/ai-markdown' }
+            { text: 'AiMarkdown', link: '/components/ai-markdown' },
+            { text: 'SmartForm', link: '/components/smart-form' },
+            { text: 'StreamChart', link: '/components/stream-chart' },
+            { text: 'TokenCounter', link: '/components/token-counter' }
           ]
         }
       ]
