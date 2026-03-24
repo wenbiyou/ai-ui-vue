@@ -28,6 +28,10 @@ export default [
         window: 'readonly',
         HTMLButtonElement: 'readonly',
         HTMLCanvasElement: 'readonly',
+        HTMLDivElement: 'readonly',
+        HTMLTextAreaElement: 'readonly',
+        CanvasRenderingContext2D: 'readonly',
+        KeyboardEvent: 'readonly',
         requestAnimationFrame: 'readonly',
         cancelAnimationFrame: 'readonly',
         console: 'readonly',
@@ -44,6 +48,22 @@ export default [
         parser: parserTypeScript,
       },
     },
+    plugins: {
+      '@typescript-eslint': pluginTypeScript,
+    },
+    rules: {
+      'vue/multi-word-component-names': 'off',
+      'no-unused-vars': 'off', // 禁用默认的 no-unused-vars，使用 @typescript-eslint/no-unused-vars
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
+    },
   },
   {
     files: ['**/*.{ts,tsx}'],
@@ -55,12 +75,15 @@ export default [
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
-    },
-  },
-  {
-    files: ['**/*.vue'],
-    rules: {
-      'vue/multi-word-component-names': 'off',
+      'no-unused-vars': 'off', // 禁用默认的 no-unused-vars，使用 @typescript-eslint/no-unused-vars
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
     },
   },
   eslintConfigPrettier,

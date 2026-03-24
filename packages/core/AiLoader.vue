@@ -6,10 +6,20 @@
       <span class="ai-loader__dot" :style="{ '--delay': '0.4s' }"></span>
     </div>
     <div v-else-if="type === 'spinner'" class="ai-loader__spinner">
-      <div class="ai-loader__spinner-blade" v-for="i in 12" :style="{ '--delay': `${i * 0.1}s` }"></div>
+      <div
+        class="ai-loader__spinner-blade"
+        v-for="i in 12"
+        :key="i"
+        :style="{ '--delay': `${i * 0.1}s` }"
+      ></div>
     </div>
     <div v-else-if="type === 'typing'" class="ai-loader__typing">
-      <span class="ai-loader__typing-dot" v-for="i in 3" :style="{ '--delay': `${i * 0.16}s` }"></span>
+      <span
+        class="ai-loader__typing-dot"
+        v-for="i in 3"
+        :key="i"
+        :style="{ '--delay': `${i * 0.16}s` }"
+      ></span>
     </div>
     <div v-if="text" class="ai-loader__text">
       {{ text }}
@@ -36,7 +46,7 @@ export interface AiLoaderProps {
   size?: 'small' | 'medium' | 'large'
 }
 
-const props = withDefaults(defineProps<AiLoaderProps>(), {
+const _props = withDefaults(defineProps<AiLoaderProps>(), {
   type: 'typing',
   size: 'medium',
 })

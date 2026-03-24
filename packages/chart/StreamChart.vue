@@ -6,7 +6,13 @@
         {{ streaming ? '● 实时推送中' : '■ 已暂停' }}
       </span>
     </div>
-    <canvas ref="canvasRef" :width="width" :height="height" class="stream-chart__canvas" @click="toggleStreaming"></canvas>
+    <canvas
+      ref="canvasRef"
+      :width="width"
+      :height="height"
+      class="stream-chart__canvas"
+      @click="toggleStreaming"
+    ></canvas>
   </div>
 </template>
 
@@ -89,8 +95,8 @@ const draw = () => {
   }
 
   // 计算坐标范围
-  const minY = Math.min(...data.map(d => d.y))
-  const maxY = Math.max(...data.map(d => d.y))
+  const minY = Math.min(...data.map((d) => d.y))
+  const maxY = Math.max(...data.map((d) => d.y))
   const rangeY = maxY - minY || 1
 
   // 绘制网格线
@@ -166,7 +172,7 @@ const addPoint = (y: number) => {
 /** 切换推送状态 */
 const emit = defineEmits<{
   /** 是否正在流式推送，支持 v-model:streaming 双向绑定 */
-  (e: 'update:streaming', value: boolean): void
+  (_e: 'update:streaming', _value: boolean): void
 }>()
 
 const toggleStreaming = () => {
@@ -185,19 +191,26 @@ const expose = {
 
 defineExpose(expose)
 
-watch(() => props.data, (newData) => {
-  currentData.value = [...newData]
-  draw()
-}, { deep: true })
+watch(
+  () => props.data,
+  (newData) => {
+    currentData.value = [...newData]
+    draw()
+  },
+  { deep: true }
+)
 
-watch(() => props.streaming, (shouldStream) => {
-  if (shouldStream) {
-    animationId.value = requestAnimationFrame(draw)
-  } else if (animationId.value) {
-    cancelAnimationFrame(animationId.value)
-    animationId.value = null
+watch(
+  () => props.streaming,
+  (shouldStream) => {
+    if (shouldStream) {
+      animationId.value = requestAnimationFrame(draw)
+    } else if (animationId.value) {
+      cancelAnimationFrame(animationId.value)
+      animationId.value = null
+    }
   }
-})
+)
 
 onMounted(() => {
   if (canvasRef.value) {
@@ -254,7 +267,12 @@ onUnmounted(() => {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 </style>

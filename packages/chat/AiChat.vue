@@ -80,9 +80,9 @@ export interface AiChatProps {
  */
 export interface AiChatEmits {
   /** 消息列表更新，用于 v-model 双向绑定 */
-  (e: 'update:modelValue', messages: ChatMessage[]): void
+  (_e: 'update:modelValue', _messages: ChatMessage[]): void
   /** 用户提交消息时触发 */
-  (e: 'submit', content: string): void
+  (_e: 'submit', _content: string): void
 }
 
 const props = withDefaults(defineProps<AiChatProps>(), {
