@@ -9,12 +9,53 @@ import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import typescript from 'highlight.js/lib/languages/typescript'
 import python from 'highlight.js/lib/languages/python'
+import html from 'highlight.js/lib/languages/xml'
+import css from 'highlight.js/lib/languages/css'
+import bash from 'highlight.js/lib/languages/bash'
+import json from 'highlight.js/lib/languages/json'
 import 'highlight.js/styles/github.css'
 
 // 注册支持的语言
 hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('typescript', typescript)
 hljs.registerLanguage('python', python)
+hljs.registerLanguage('html', html)
+hljs.registerLanguage('xml', html) // xml uses same highlighter as html
+hljs.registerLanguage('vue', html) // vue uses html highlighter
+hljs.registerLanguage('css', css)
+hljs.registerLanguage('bash', bash)
+hljs.registerLanguage('shell', bash)
+hljs.registerLanguage('json', json)
+
+// 配置 marked 扩展实现代码高亮
+marked.use({
+  renderer: {
+    code(code: string, lang: string | undefined, _escaped: boolean) {
+      // 清理语言标识符，移除可能的额外字符
+      const language = lang ? lang.trim().toLowerCase() : ''
+
+      try {
+        if (language && hljs.getLanguage(language)) {
+          const result = hljs.highlight(code, { language })
+          return `<pre><code class="hljs language-${language}">${result.value}</code></pre>`
+        } else {
+          const result = hljs.highlightAuto(code)
+          return `<pre><code class="hljs">${result.value}</code></pre>`
+        }
+      } catch (error) {
+        console.warn('Failed to highlight code:', error)
+        // 如果高亮失败，返回普通代码块
+        const escapedCode = code
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;')
+        return `<pre><code class="hljs">${escapedCode}</code></pre>`
+      }
+    }
+  }
+})
 
 /**
  * AiMarkdown 组件 Props 定义
@@ -35,20 +76,10 @@ const props = withDefaults(defineProps<AiMarkdownProps>(), {
 })
 
 const renderedHtml = computed(() => {
-  marked.setOptions({
+  return marked.parse(props.content, {
     breaks: props.breaks,
     gfm: props.gfm
   })
-  // 使用 marked 扩展实现代码高亮
-  const renderer = new marked.Renderer()
-  renderer.code = function(code: string, lang: string) {
-    if (lang && hljs.getLanguage(lang)) {
-      return `<pre><code class="hljs language-${lang}">${hljs.highlight(code, { language: lang }).value}</code></pre>`
-    }
-    return `<pre><code class="hljs">${hljs.highlightAuto(code).value}</code></pre>`
-  }
-  marked.use({ renderer })
-  return marked.parse(props.content)
 })
 </script>
 
@@ -84,18 +115,16 @@ const renderedHtml = computed(() => {
 }
 
 .ai-markdown :deep(pre) {
-  background: var(--ai-pre-bg, #1f2937);
-  color: white;
   padding: 16px;
   border-radius: 8px;
   overflow-x: auto;
   margin: 1em 0;
+  background: #f6f8fa; /* GitHub light theme background */
 }
 
 .ai-markdown :deep(pre code) {
   background: transparent;
   padding: 0;
-  color: inherit;
 }
 
 .ai-markdown :deep(ul),

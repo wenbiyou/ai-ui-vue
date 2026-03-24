@@ -22,16 +22,13 @@
         <AiMarkdown :content="codeExample" />
       </div>
       <pre><code>
-```vue
-const codeExample = \`
 ## JavaScript 示例
-\`\`\`javascript
+
+```javascript
 function greet(name) {
-  console.log(\`Hello, \${name}!\`);
+  console.log(`Hello, ${name}!`);
 }
 greet('Vue');
-\`\`\`
-\`;
 ```
       </code></pre>
     </section>
@@ -142,6 +139,7 @@ function greet(name) {
 greet('Vue');
 \`\`\`
 `)
+
 
 const tableExample = ref(`
 | 姓名 | 年龄 | 职业 |
