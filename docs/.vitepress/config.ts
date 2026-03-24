@@ -52,6 +52,12 @@ export default defineConfig({
           items: [
             { text: '移动端适配', link: '/guide/mobile' }
           ]
+        },
+        {
+          text: '性能',
+          items: [
+            { text: '性能对比', link: '/guide/performance' }
+          ]
         }
       ],
       '/components/': [
