@@ -26,7 +26,7 @@ pnpm add ai-ui-vue
 
 ```vue
 <script setup>
-import { AiInput } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 ```
 
@@ -34,7 +34,7 @@ import { AiInput } from 'ai-ui-vue'
 
 ```vue
 <script setup>
-import AiUiVue from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 
 <template>

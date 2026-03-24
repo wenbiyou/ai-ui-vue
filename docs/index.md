@@ -22,7 +22,7 @@ npm install ai-ui-vue
 
 ```vue
 <script setup>
-import { AiInput, AiMessage, AiLoader } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 
 <template>

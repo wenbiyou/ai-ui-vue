@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import AiLoader from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 ```
 
@@ -32,7 +32,7 @@ import AiLoader from 'ai-ui-vue'
 </template>
 
 <script setup>
-import AiLoader from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 ```
 
@@ -50,7 +50,7 @@ import AiLoader from 'ai-ui-vue'
 </template>
 
 <script setup>
-import AiLoader from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 ```
 
@@ -68,7 +68,7 @@ import AiLoader from 'ai-ui-vue'
 </template>
 
 <script setup>
-import AiLoader from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 ```
 
@@ -96,7 +96,7 @@ import AiLoader from 'ai-ui-vue'
 </template>
 
 <script setup>
-import AiLoader from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 ```
 
@@ -139,7 +139,7 @@ import AiLoader from 'ai-ui-vue'
 </template>
 
 <script setup>
-import AiLoader from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 ```
 
@@ -161,7 +161,7 @@ import AiLoader from 'ai-ui-vue'
 </template>
 
 <script setup>
-import AiLoader from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 ```
 
@@ -188,7 +188,7 @@ import AiLoader from 'ai-ui-vue'
 </template>
 
 <script setup>
-import { AiMessage, AiLoader } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 </script>
 ```
 
@@ -231,7 +231,7 @@ import { AiMessage, AiLoader } from 'ai-ui-vue'
 
 <script setup>
 import { ref } from 'vue'
-import { AiLoader } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 
 const loading1 = ref(false)
 const loading2 = ref(false)
@@ -277,7 +277,7 @@ const toggleLoading = (field) => {
 
 <script setup>
 import { ref } from 'vue'
-import { AiLoader } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 
 const loading = ref(true)
 </script>
@@ -318,7 +318,7 @@ const loading = ref(true)
 
 <script setup>
 import { ref } from 'vue'
-import { AiMessage, AiLoader } from 'ai-ui-vue'
+import { AiInput, AiMessage, AiLoader, AiMarkdown } from "../../packages"
 
 const messages = ref([
   { id: 1, role: 'user', content: '你好，请介绍一下你自己' }
